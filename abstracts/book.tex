@@ -1,0 +1,37 @@
+\include{template/preamble}
+
+\begin{document}
+
+\title{Spatial interfaces for long-form evidence presentations}\maketitle
+
+\section{Abstract}
+Long-form evidence presentations, like techincal books and academic papers have long suffered from the limitations of the media in which they have been presented. Paper forces the content to be split at arbitrary points in order to fit on pages of equal size, which are read linearly, one at a time. There is no easy way to get an overview of the entire document, and no clear spatial hierarchy. The current generation of digital books emulate most of the problems with paper books, and do not take advantage of the potential of the screen as a dynamic medium. However, even if they did, they would still be limited by the screen, because they could only make use of a small, two-dimensional area in the human field of vision.
+
+We propose a new format for long-form evidence prsentations, which presents information in 3D space. This would allow for the content to be laid out in a semantic hierarchy without format restrictions. It would also make it possible to include media such as videos or interactive models in 2D and 3D, and enable non-linear exploration instead of a single linear narrative.
+
+Our solution consists of a Virtual Reality scene which contains evidence in various forms (text, images, visualizations, videos, and explorable models), structured in a spatially semantic way. Users can see an overview of the topic at a glance, or open individual sections in full detail to explore them.
+
+Our implementation will make use of a \textsc{vr} headset with positional tracking and two hand controllers to manipulate items in \textsc{vr}. However, due to the low resolution of commercially available \textsc{vr} headsets, we will also evaluate the viability of using a \textsc{cave}, which could potentially provide a higher resolution.
+
+We will evaluate our solution by creating a \textsc{vr} version of an existing book or paper and test whether users are able to learn about the subject more effectively in our system by testing their knowledge of the subject matter. We will also evaluate the general usability of the system in a qualitative study by observing user behavior during the test and through a questionnaire afterwards.
+
+
+\subsection{Contributions}
+\begin{itemize}
+  \setlength\itemsep{.1em}
+  \item We will develop and evaluate general-purpose patterns for displaying and navigating large amounts of information in \textsc{vr}, which can be used by others building information-dense \textsc{vr} applications in the future
+	\item We will demonstrate how different types of 2D and 3D media can be integrated as parts of a single evidence presentation in a \textsc{vr} environment, which there are currently very few examples of
+  \item Some of the work regarding semantic structure, providing a useful overview, and itegrating different kinds of evidence may be applicable to 2D interfaces as well
+\end{itemize}
+
+
+\section{Notes \& ideas}
+\begin{itemize}
+  \setlength\itemsep{.1em}
+	\item With room-scale \textsc{vr}, it could be possible to move around the room exploring different parts of the evidence presentation. However, this might become tiring after a while, or make navigation too slow.
+\end{itemize}
+
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{references}
+
+\end{document}

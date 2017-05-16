@@ -158,9 +158,9 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 % \cleardoublepage
 \chapter{Abstract}
 
-Traditionally, graphical user interfaces employ letterboxing in order to display more information than the screen can accomodate at any one time, \ie they employ of a virtual space larger than the screen, which users can interactively navigate. Because users can only see a small part of the letterboxed data space at any given time, it is hard for them to establish a spatial model of the data. This can make interfaces difficult to navigate, especially with large datasets.
+Traditionally, graphical user interfaces use letterboxing in order to display more information than the screen can accomodate at any one time, \ie they employ a virtual space larger than the screen, which users can interactively navigate. Because users can only see a small part of the letterboxed data space at any given time, it is harder for them to establish a spatial model of the data. This can make interfaces difficult to navigate, especially with large datasets.
 
-Most Virtual Reality applications today employ the same letterboxing patterns as traditional 2D interfaces. It is our hypothesis that \textsc{vr} interfaces could use the possibilities afforded by the 3D environment, in order to improve usability over letterboxing-based approaches.
+Most Virtual Reality applications today employ the same letterboxing patterns as traditional 2D interfaces. It is our hypothesis that by using the possibilities afforded by the 3D environment, usability in VR applications could be improved over letterboxing-based approaches.
 
 We will test this hypothesis experimentally by displaying the same dataset (a large set of photos) in different interfaces, some using 2D letterboxing, others using 3D space to display the data. We will record how efficient the different interfaces are to navigate, as well as user satisfaction.
 
@@ -173,7 +173,7 @@ We will test this hypothesis experimentally by displaying the same dataset (a la
 % \cleardoublepage
 \chapter{Introduction} % The asterisk leaves out this chapter from the table of contents
 
-When displaying large amounts of information on any medium, whether it's a book, a paper map, or a phone's screen, there are always cases where it isn't possible to show everything at the same time. Strategies for handling this problem are as old as civilization: Ancient scrolls employ a single, linear surface which is then rolled up, books split the information into chunks of similar size and put it on pages which can be stacked, and paper maps are be folded in intricate ways, in order to enable easy navigation in two dimensions (see figure~\ref{fig:falkmap}).
+When displaying large amounts of information on any medium, whether it's a book, a paper map, or a phone's screen, there are always cases where it isn't possible to show everything at the same time. Strategies for handling this problem are as old as civilization: Ancient scrolls employ a single, linear surface which is rolled up, books split the information into chunks of similar size and put it on pages which can be stacked, and paper maps are be folded in intricate ways, in order to enable easy navigation in two dimensions (see figure~\ref{fig:falkmap}).
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{falk-patent.png}
@@ -189,13 +189,13 @@ In screen-based graphical user interfaces, these cases are usually handled by re
 Unlike with screens, there are no natural boundaries for Virtual Reality interfaces, because the virtual environment takes up the entire field of vision. Additionally, users can move around in this environment while using an application. This presents the opportunity to use this larger space, as well as the third dimension, in the design of user interfaces.
 
 \begin{figure}
-  \includegraphics{pinc2.jpg}
+  \includegraphics{pinc.jpg}
   \caption{Mockup of a Virtual Reality interface covering the entire field of vision (hellopinc.com)}
   \label{fig:noboundaries}
 \end{figure}
 
-However, there are currently very few real-world examples of this kind of spatial interface in \textsc{vr}. Most applications are either games or novelty apps such as 3D drawing programs, likely because the 1080p resolution on the current generation of headsets is far too low for most productivity applications.
-The interfaces with some complexity that do exist tend to mimic 2D interface patterns and employ letterboxing, often with little or no animations.
+However, there are currently very few real-world examples of this kind of spatial interface in \textsc{vr}. Most applications are either games or novelty apps such as 3D drawing programs, likely because the resolution on the current generation of headsets is far too low for most productivity applications.
+The interfaces with some complexity that do exist tend to mimic 2D interface patterns and employ letterboxing.
 
 \begin{figure}
   \includegraphics{superhot.png}
@@ -232,8 +232,42 @@ We will develop and evaluate general-purpose patterns for displaying and navigat
 \chapter{Related Work}
 \label{ch:related-work}
 
-Related work.........
+\section{State of the Art VR Interfaces}
+The current generation of VR Interfaces doesn't make much use of 3D space. Most interfaces are flat 2D panels, not very different from traditional 2D interfaces in both form and behavior. They rely heavily on flat, letterboxed, scrollable areas, or simply pagination with fade transitions.
 
+We found this to be true on both Oculus and SteamVR, with Oculus making slightly better use of the 3D space by employing freely floating elements in space, while SteamVR's interface relies mostly on monolithic flat panels.
+However, SteamVR has more consistent, spatial animations, while Oculus relies heavily on jarring cuts and fades.
+
+\begin{figure}
+  \includegraphics{steamstore.png}
+  \caption{The SteamVR store interface is a single flat surface that behaves like a regular desktop app. On the bottom there is a taskbar to switch between open apps, and a system bar with time, volume and settings.}
+  \label{fig:steamstore}
+\end{figure}
+
+
+
+\subsection{Controller-Mapped Interfaces}
+One notable exception from the generally flat and traditional interfaces are the controls persistently mapped to the controllers in Google Earth and TiltBrush.
+
+In Google Earth, there is a miniature globe fixed on top of the left hand controller. The right controller can be used to point at a position on the globe to teleport there. This kind of navigation with two hands feels very intuitive, because it only relies on direct hand movement in space, not abstract button mappings or external controls.
+
+\begin{figure}
+  \includegraphics{globe.png}
+  \caption{The miniature globe is fixed to the top of the left hand controller and increases in size when pointed at by the right hand controller. A little red pin shows the location hovered by the cursor. Pressing the trigger button teleports to that location.}
+  \label{fig:globe}
+\end{figure}
+
+In TiltBrush, the left hand has a persistent menu with three pages of settings, which are arrayed around the controller, facing outwards. They can be turned along the center axis with the left hand controller's touchpad, and the right hand controller is used to operate the menus.
+The contents of the two menu panels not facing the user is not visible, likely so as not to be visually distracting. As the panels turn, only the one facing the user shows
+The menus themselves are not as revolutionary as their co, employing standard 2D interface patterns such as pagination and letterboxing.
+
+\begin{figure}
+  \includegraphics{tiltbrushmenu.png}
+  \caption{Color picker page, one of the three pages in the Tilt Brush menu}
+  \label{fig:tiltbrushmenu}
+\end{figure}
+
+In our opinion these examples show the potential of spatial interaces in VR.
 
 %----------------------------------------------------------------------------------------
 %	PROTOTYPES
@@ -247,18 +281,40 @@ The \textsc{VR} ecosystem is currently (mid 2017) still in its infancy. We exper
 
 The installation and setup are very cumbersome for both headsets, especially on the software side, where we encountered many glitches, bugs, and usability problems.
 
-The biggest issue with both headsets is the very low resolution, as both only have a resolution of 1080x1200 per eye. This means that text needs to be either very big, or very close to be legible, and makes any kind of information-dense application impossible. This is exemplified by the fact that the visual entropy of most apps is roughly that of a smartphone, and likely the reason why there are currently only a handful of non-trivial, non-game applications available on both the Oculus store and Steam.
+The biggest issue with both headsets is the very low resolution, as both only have a resolution of 1080x1200 per eye. In addition, in the periphery of the display the picture is quite blurry, meaning that refocusing the eyes to the sides to see content there is frustrating. This means that text needs to be either very big, or very close to be legible, and makes any kind of information-dense application impossible. This is exemplified by the fact that the visual entropy of most apps is roughly that of a smartphone, and likely the reason why there are currently only a handful of non-trivial, non-game applications available on both the Oculus store and Steam.
 
 Both headset do room scale tracking relatively well, but we found the Vive tracking to be more reliable, likely due to its trackers being mounted on the walls. Walking around in the roughly 2x2m space feels natural, but the limitations of being able to move only within such a small space quickly become clear in scenarios like games with open-world environments, where it means that teleporting has to be the primary means of movement.
 
 \section{Development}
 We developed our prototypes in WebVR using Mozilla's A-Frame Framework. A-Frame is a Javascript library which enables building VR experiences using declarative components directly in HTML. It runs completely standalone in the browser, and can be used with other Javascript libraries and standard web tooling. Though there are sometimes performance and stability issues due to WebVR support in browsers still being experimental, the quality of the experiences is more or less on par with native VR for simple applications.
 
+
 \section{Prototype 1: Stacked List}
-This prototype uses z-depth to stack invisible items behind the visible ones at both ends of a list. The content of these stacked items is not visible, but their presence shows how many items there are both above and below the current position in the list, thereby intuitively communicating this position to the user, without relying on external indicators (\eg scrollbars).
+This prototype is a scrollable 1-dimensional list of cards which uses z-depth to stack overflow cards at both ends of a list. The content of these stacked cards is not visible, but their presence shows how many items there are above and below the currently visible cards, thereby intuitively communicating the position in the list to the user, without relying on external indicators (\eg scrollbars).
+
+\begin{figure}
+  \includegraphics{emailscroll.png}
+  \caption{Illustration of the scrolling behavior: Lifting up the controller while pressing the trigger button moves the cards up in the list.}
+  \label{fig:emailscroll}
+\end{figure}
+
+Users can scroll the list by keeping the trigger button on the controller pressed while moving it vertically. The scrolling direction mimics the ``natural'' scrolling behavior on touchscreens and touchpads, whereby moving the controller up will move the elements upwards, thus scrolling down in the list.
+
 
 \section{Prototype 2: Elevator}
+This prototype is an attempt to use the available physical space as efficiently as possible, arraying information on a vertical 3D tube around the user. The information on the walls can be explored by walking around inside the tube, as well as changing the vertical position of the tube by ``scrolling'' it up and down.
 
+\begin{figure}
+  \includegraphics{picassoinside.jpg}
+  \caption{The ``elevator'' prototype showing paintings on the walls of the cylinder. The vertical position can be moved by pressing the trigger button and moving the controller vertically.}
+  \label{fig:picassoinside}
+\end{figure}
+
+\begin{marginfigure}
+  \includegraphics[width=\linewidth]{picassooutside.jpg}
+  \caption{The same prototype, seen from the outside}
+  \label{fig:picassooutside}
+\end{marginfigure}
 
 %----------------------------------------------------------------------------------------
 %	EXPERIMENTS
@@ -267,9 +323,9 @@ This prototype uses z-depth to stack invisible items behind the visible ones at 
 \chapter{Experiments}
 \label{ch:experiments}
 
-We will construct a series of Virtual Reality scenes, each using a different approach to display the same data, in oder to compare them effectively. Our implementation will make use of a \textsc{vr} headset with positional tracking and two hand controllers to manipulate items in \textsc{vr}. However, due to the low resolution of commercially available \textsc{vr} headsets, we will also evaluate the viability of using a \textsc{cave}, which could potentially provide a higher resolution.
+We will construct a series of Virtual Reality scenes, each using a different approach to display the same data, in oder to compare them effectively. Our implementation will make use of a \textsc{vr} headset with positional tracking and two hand controllers to manipulate items in \textsc{vr}.
 
-We will evaluate our solutions by running a user study, wherein users navigate our proposed spatial interfaces, as well as a letterboxing-based solution, in order to compare their usability. We will measure efficiency, observe user behavior during the study, and assess user satisfaction using a questionnaire after the experiment.
+We will evaluate our solutions by running a user study, wherein users navigate both spatial interfaces, as well as letterboxing-based solutions, in order to compare their usability. We will measure efficiency, observe user behavior during the study, and assess user satisfaction using a questionnaire after the experiment.
 
 
 %----------------------------------------------------------------------------------------

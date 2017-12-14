@@ -1461,7 +1461,7 @@
   \begin{fullwidth}%
   \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{{\thanklessauthor}}%
   \vspace{11.5pc}%
-  \fontsize{30}{38}\selectfont\par\noindent\textcolor{darkgray}{\textit{\thanklesstitle}}%
+  \fontsize{34}{50}\selectfont\par\noindent\textcolor{darkgray}{\textit{\thanklesstitle}}%
   \vfill%
   \fontsize{14}{16}\selectfont\par\noindent{\thanklesspublisher}%
   \end{fullwidth}%

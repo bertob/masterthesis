@@ -10,6 +10,11 @@
 *.fot
 *.cb
 *.cb2
+*.ilg
+*.idx
+*.ind
+*.synctex.gz
+*.fdb_latexmk
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl

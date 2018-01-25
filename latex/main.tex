@@ -162,7 +162,7 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 
 In order to display more information than the screen can accomodate at any one time, traditional graphical user interfaces use clipping, \ie they employ a virtual space larger than the screen, which users can interactively navigate. Because users can only see a small part of the clipped data space at any given time, it is harder for them to establish a spatial model of the data. This can make interfaces difficult to navigate, especially with numbers of items.
 
-Most Virtual Reality applications today employ the same clipping patterns as traditional 2D interfaces. It is our hypothesis that by using all the possibilities afforded by the 3D environment, usability in VR applications could be improved over clipping-based approaches.
+Most Virtual Reality applications today employ the same clipping patterns as traditional 2D interfaces. It is our hypothesis that by using all the possibilities afforded by the 3D environment, usability in \textsc{vr} applications could be improved over clipping-based approaches.
 
 We tested this hypothesis by displaying the same information (cards with monochrome icons) in different interfaces: One using 2D clipping, and two using 3D space to display the data. We found significantly increased performance in the spatial interfaces, as well as higher user satisfaction.
 
@@ -175,7 +175,7 @@ We tested this hypothesis by displaying the same information (cards with monochr
 % \cleardoublepage
 \chapter{Introduction} % The asterisk leaves out this chapter from the table of contents
 
-When displaying large amounts of information on any medium, whether it's a book, a paper map, or a phone's screen, there are always cases where it isn't possible to show everything at the same time. Strategies for handling this problem are as old as civilization: Ancient scrolls employ a single, linear surface which is rolled up, books split the up information into and lay it out on pages, which can be stacked, and paper maps are be folded in intricate ways \cite{angsusser2012map}, in order to enable easy navigation in two dimensions (see figure~\ref{fig:falkmap}).
+When presenting large amounts of information on any medium, whether it's a book, a paper map, or a phone's screen, there are always cases where it isn't possible to show everything at the same time. Strategies for handling this problem are as old as civilization: Ancient scrolls employ a single, linear surface which is rolled up, books split the up information and lay it out on pages, which can be stacked, and paper maps are be folded in intricate ways \cite{angsusser2012map}, in order to enable easy navigation in two dimensions (see figure~\ref{fig:falkmap}).
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{falk-patent.png}
@@ -183,12 +183,12 @@ When displaying large amounts of information on any medium, whether it's a book,
 \label{fig:falkmap}
 \end{marginfigure}
 
-In screen-based graphical user interfaces, these cases are usually handled by relying on clipping, \ie by employing a virtual space on which all of the information is laid out, and cutting off the content at the edges of the screen. Users can then interactively navigate the virtual space by moving their viewport onto it, \eg by scrolling. This technique works, but it is suboptimal, because it puts the burden of keeping track of the position in the virtual space on the user. Instead of being able to see the entire space they have to rely on their mental model of it \cite{bederson2011promise}.
+In screen-based graphical user interfaces, these cases are usually handled by relying on clipping, \ie by employing a virtual space on which all of the information is laid out, and cutting off the content at the edges of the screen. Users can then interactively navigate the virtual space by moving their viewport, \eg by scrolling. This technique works, but it is suboptimal, because it puts the burden of keeping track of the position in the virtual space on the user. Instead of being able to see the entire space they have to rely on their mental model of it \cite{bederson2011promise}.
 
-Unlike with screens, there are no natural boundaries for Virtual Reality interfaces, because the virtual environment takes up the entire field of vision. Additionally, users can move around in this environment while using an application. This presents the opportunity to use this larger space, as well as the third dimension, in the design of user interfaces.
+Unlike with screens, there are no natural boundaries for Virtual Reality (\textsc{vr}) interfaces, because the virtual environment takes up the entire field of vision. Additionally, users can move around in this environment while using an application. This presents the opportunity to use the larger space, as well as the third dimension, in the design of user interfaces.
 
-However, there are currently very few real-world examples of this kind of spatial interface in \textsc{vr}. Most applications are either games or novelty apps such as 3D drawing programs, likely because the resolution on the current generation of headsets is far too low for most productivity applications.
-The interfaces with some complexity that do exist tend to mimic 2D interface patterns and employ clipping.
+However, there are few examples of \textsc{vr} interfaces that make use of these possibilities. Most \textsc{vr} applications today are either games or novelty apps such as 3D drawing programs.
+The interfaces with some complexity that do exist tend to mimic 2D interface patterns and employ clipping (see figure~\ref{fig:superhot}).
 
 \begin{figure}
   \includegraphics{superhot.png}
@@ -196,14 +196,13 @@ The interfaces with some complexity that do exist tend to mimic 2D interface pat
   \label{fig:superhot}
 \end{figure}
 
+In this study we explored spatial interfaces which enable the presentation and navigation of large data sets using the unique possibilities that 3D space affords. While the limited real estate on screens necessitates clipping in most cases, this is not true for \textsc{vr}. The potentially unlimited 3D space \textsc{vr} interface elements exist in allows us to keep them around, even when they aren't being used or looked at.
 
-In this study we explore spatial interfaces which enable the presentation and navigation of large data sets using the unique possibilities that 3D space affords. For example, instead of disappearing outside the viewport, list items can stack up on top of a list, shrink to a smaller size, or be arranged in a grid.
-
-\begin{marginfigure}
-  \includegraphics[width=\linewidth]{email.png}
-  \caption{Prototype of a list interface which stacks overflowing cards in the z-dimension.}
-  \label{fig:email}
-\end{marginfigure}
+% \begin{marginfigure}
+%   \includegraphics[width=\linewidth]{email.png}
+%   \caption{Prototype of a list interface which stacks overflowing cards in the z-dimension.}
+%   \label{fig:email}
+% \end{marginfigure}
 
 \subsection{Reserach Question}
 The primary research question is whether spatial interfaces can improve the usability of \textsc{vr} applications compared to clipping. Additionally, we explored the advantages and disadvantages of different spatial approaches and interaction modalities in \textsc{vr}.
@@ -225,73 +224,82 @@ We evaluated general-purpose patterns for displaying and navigating large amount
 \chapter{Related Work}
 \label{ch:related-work}
 
+This section is an overview of the history and state of the art in \textsc{vr} research, the most important challenges with designing \textsc{vr} interfaces, and the various interaction techniques that have been developed to overcome them. It also surveys the use of 3D space in the interfaces of current-generation consumer \textsc{vr} systems.
+
 \section{Virtual Reality}
-Both \emph{augmented reality} and \emph{virtual reality} use screens (or other display technologies) and positional tracking of the user's body in order to simulate virtual, spatial objects before their eyes. Azuma's \emph{Survey of Augmented Reality} (1997) describes augmented reality as ``3-D virtual objects are integrated into a 3-D real environment in real time'' \cite{azuma1997survey}. Virtual reality, on the other hand, tends to be used to describe systems with few or no real-world objects, where users are fully immersed in an experience.
+Both \emph{Augmented Reality} and \emph{Virtual Reality} use screens (or other display technologies) and positional tracking of the user's body in order to simulate virtual, spatial objects before the user's eyes. Azuma's \emph{Survey of Augmented Reality} (1997) describes Augmented Reality as ``3-D virtual objects are integrated into a 3-D real environment in real time'' \cite{azuma1997survey}. Virtual Reality, on the other hand, tends to be used to describe systems with few or no real-world objects, where users are fully immersed in an experience.
 Milgram's reality-virtuality continuum spans from augmented reality (mostly real objects with some virtual ones), to virtual reality (mostly virtual elements) \cite{milgram1994taxonomy}. Between these two extremes there are many different types of \emph{mixed reality} with different degrees of virtuality.
 
-Virtual and augmented reality go back as far as the 1960s \cite{sutherland1968head}, but only starting in the late 1980s head-mounted displays became practical and widely available \cite{billinghurst2015survey}. Though the technology was limited (with resolutions like $263$ $\times$ $230$ pixels and $45$ degree fields of view), many of the interaction techniques used in current-generation VR were developed on these headsets.
+Virtual and augmented reality go back as far as the 1960s \cite{sutherland1968head}, but only starting in the late 1980s head-mounted displays became practical and widely available \cite{billinghurst2015survey}. Though the technology was limited (with resolutions like $263$ $\times$ $230$ pixels and $45$ degree fields of view), many of the interaction techniques used in current-generation \textsc{vr} were developed on these headsets.
 
-The 1995 paper \emph{User interface constraints for immersive virtual environment applications} gives an overview of the interface design constraints and challenges when building VR interfaces \cite{bowman1995user}. It stresses the importance of affordances (and signifiers), mappings, feedback, and constraints to designing usable interfaces \cite{norman2013design}, especially in the context of immersive VR software. It mentions spatial boundaries that keep users from leaving the physical space designated for the VR experience, raycasting for object selection, and a number of other techniques that are still highly relevant in 2017.
+The 1995 paper \emph{User interface constraints for immersive virtual environment applications} gives an overview of the interface design constraints and challenges when building \textsc{vr} interfaces \cite{bowman1995user}. It stresses the importance of affordances (and signifiers), mappings, feedback, and constraints to designing usable interfaces \cite{norman2013design}, especially in the context of immersive \textsc{vr} software. It mentions spatial boundaries that keep users from leaving the physical space designated for the \textsc{vr} experience, raycasting for object selection, and a number of other techniques that are still highly relevant in 2017.
 
 \subsection{Locomotion}
-The most intuitive way to navigate VR experiences is tracking body movement and mapping it 1-1 to the virtual space. Current-generation room-scale VR is capable of doing this reasonably well, with high precision and little or no lag. However, this type of locomotion limits the size virtual spaces to the size of the physical space (usually around $3$ $\times$ $3$ meters for current-generation room scale VR systems). This means that the virtual spaces can't have arbitrary proportions, which is a problem for many kinds of VR experiences, such as open-world games, or architectural simulations. Thus, more flexible, but less intuitive types of locomotion are required in order to enable these kinds of experiences inside limited physical spaces.
+The most intuitive way to navigate \textsc{vr} experiences is tracking body movement and mapping it 1-1 to the virtual space. Current-generation room-scale \textsc{vr} is capable of doing this reasonably well. Thanks to a 90 Hz display refresh rate (in both Oculus and Vive) there is no perceivable lag from head movement in most cases. However, this type of locomotion limits the size virtual spaces to the size of the physical space (usually around $3$ $\times$ $3$ meters for current-generation room scale \textsc{vr} systems). This means that the virtual spaces can not have arbitrary proportions, which is a problem for many kinds of \textsc{vr} experiences, such as open-world games, or architectural simulations. Thus, more flexible, but less intuitive types of locomotion are required in order to enable these kinds of experiences inside limited physical spaces.
 
-One solution to this problem is ``flying'' around the virtual space by simply moving the camera without the user moving their body. The movement can be indirectly controlled e.g. by pressing buttons on a controller \cite{bowman1996evaluation} \cite{bowman1995user}. This is a very flexible locomotion mechanic that scales to any kind of room, but is problematic because it can cause motion sickness. Since the user is not actually moving, it results in conflicting visual and vestibular stimuli, leading to disorientation and nausea in some cases \cite{akiduki2003visual}.
+One solution to this problem is ``flying'' around the virtual space by simply moving the camera without the user moving their body. The movement can be indirectly controlled e.g. by pressing buttons on a controller \cite{bowman1996evaluation} \cite{bowman1995user}. This is a very flexible locomotion mechanic that scales to any kind of room, but is problematic because it can cause motion sickness. Since the user is not actually moving, it results in conflicting visual and vestibular stimuli, leading to disorientation and nausea for many people \cite{akiduki2003visual}.
 
 Another common solution is teleportation. In most implementations of this mechanic, the user can set their new position by pointing at a location somewhere in the virtual space \cite{bozgeyikli2016point}. They are then instantly ``transported'' to the new location, usually with little or no animations. This can be disorienting, as the user has to re-scan the space after the transitions, but since there is no movement between the start and end positions, it does not cause motion sickness. The feedforward of explicitly setting the new position in space is likely another factor that mitigates this.
 
-Other approaches to this problem use specialized hardware to give users the illusion of physical travel. The Virtuix Omni is an omnidirectional treadmill that allows users to walk or run in place without actually moving \cite{warren2017omni}. This is made possible by the low-friction material of the platform surface, as well as special shoes the user has to wear.
+``Redirected Walking'' is a technique that imperceptibly rotates the virtual environment to accomodate a larger virtual space \cite{razzaque2001redirected}. This can be used to create the illusion of walking in a straight line, when in reality walking along an arc. However, since the rotation has to be slow in order for users not to notice it, this technique requires a large tracked space in order to accomodate arbitrary virtual environments.
+
+Other approaches to this problem use specialized hardware to give users the illusion of physical travel. Omnidirectional treadmills allow users to walk in place without actually moving. This can be achieved using two perpendicular treadmills with a tracking system \cite{darken1997omni}, or a low-friction surface and special shoes \cite{warren2017omni}.
 
 \subsection{Input Decvies}
-When it comes to interacting with VR objects, the fundamental problem is that the ``natural'' way to interact with 3D objects in the real world using our hands doesn't work. VR headsets simulate the visual appearance of virtual objects, but there is no equally flexible technology for simulating haptics \cite{burdea1999keynote}, so VR objects cannot be touched or manipulated like real-world objects. Different VR input technologies have different sets of trade-offs, but are ultimately all limited in this way.
+When it comes to interacting with \textsc{vr} objects, the fundamental problem is that the ``natural'' way to interact with 3D objects in the real world using our hands does not work. \textsc{vr} headsets simulate the visual appearance of virtual objects, but there is no equally flexible technology for simulating haptics \cite{burdea1999keynote}, so \textsc{vr} objects cannot be touched or manipulated like real-world objects. Different \textsc{vr} input technologies have different sets of trade-offs, but are ultimately all limited in this way.
 
-The simplest interaction mechanic, mostly employed by mobile VR systems on phones, is gaze-based. To trigger an action, the user has to look at an object and either wait a certain amount of time, visualized by a ``fuse'' timer, or press a button on a remote to confirm the action. This mechanic is of course very limited and only useful for simple experiences like media consumption. Some VR experiences can be used with traditional game controllers, which provide more degrees of freedom and better haptic feedback, but are also very limiting because they can only be used for indirect manipulation. They also require remembering the button layout, because the controller is not visible from within VR.
+The simplest interaction mechanic, mostly employed by mobile \textsc{vr} systems on phones, is gaze-based. To trigger an action, the user has to look at an object and either wait a certain amount of time, visualized by a ``fuse'' timer, or press a button on a remote to confirm the action. This mechanic is of course very limited and only useful for simple experiences like media consumption. Some \textsc{vr} experiences can be used with traditional game controllers, which provide more degrees of freedom and better haptic feedback, but are also very limiting because they can only be used for indirect manipulation. They also require remembering the button layout, because the controller is not visible from within \textsc{vr}.
 
-Room-scale VR systems like the Oculus Rift or HTC Vive come with two controllers, one for each hand. They are tracked in 3D space, and are therefore visible in VR. Their shape and button layouts allow for some natural hand movements, like grabbing or pointing to be detected. However, the current generation of controllers does not detect each finger separately, so this is limited to a few gestures. The spatial tracking of the controllers allows for some degree of direct manipulation of objects, e.g. moving the hand onto an object, grabbing it, and then throwing it across the room. There are limitations to this however, since there is no real haptic feedback, and objects offer no resistance to the user intersecting them with their bodies or controllers \cite{sanchez2005presence}.
+\textsc{vr} systems like the Oculus Rift or HTC Vive come with two controllers, one for each hand. They are tracked in 3D space, and are therefore visible in \textsc{vr}. Their shape and button layouts allow for some natural hand movements, like grabbing or pointing to be detected. However, the current generation of controllers does not detect each finger separately, so this is limited to a few gestures. The spatial tracking of the controllers allows for some degree of direct manipulation of objects, e.g. moving the hand onto an object, grabbing it, and then throwing it across the room. There are limitations to this however, since there is no real haptic feedback, and objects offer no resistance to the user intersecting them with their bodies or controllers \cite{sanchez2005presence}.
 
-Other systems, such as the Microsoft HoloLens, employ a gesture-based interaction model using hand tracking. This works by visually detecting hand positions and gestures using the cameras on the headset. It is also possible to add hand tracking to desktop VR systems such as the HTC Vive by adding a Leap Motion hand tracking system to it \cite{wozniak2016possible}. These systems have the advantage of not requiring additional hardware and allowing for more degrees of freedom. However, they lack any kind of haptic feedback and the gesture recognition can be unreliable, which is frustrating for users.
+Other systems, such as the Microsoft HoloLens, employ a gesture-based interaction model using hand tracking. This works by visually detecting hand positions and gestures using the cameras on the headset. It is also possible to add hand tracking to desktop \textsc{vr} systems such as the HTC Vive by adding a Leap Motion hand tracking system to it \cite{wozniak2016possible}. These systems have the advantage of not requiring additional hardware and allowing for more degrees of freedom. However, they lack any kind of haptic feedback and the gesture recognition can be unreliable, which is frustrating for users.
 
 \subsection{Selection \& Manipulation}
-Basic direct manipulation of objects is possible with current-generation VR controllers, but sometimes indirect manipulation is necessary or preferrable (e.g. because it is faster or more precise for a specific task). Bowman \& Hodges describe a design metaphor for VR indirect manipulation interfaces based on traditional desktop interface concepts such as widgets, menus, buttons, icons, and pointing \cite{bowman1994wimp}.
+Basic direct manipulation of objects is possible with current-generation \textsc{vr} controllers, but sometimes indirect manipulation is necessary or preferrable (e.g. because it is faster or more precise for a specific task). Bowman \& Hodges describe a design metaphor for indirect manipulation interfaces in \textsc{vr}  based on traditional desktop interface concepts such as widgets, menus, buttons, icons, and pointing \cite{bowman1994wimp}.
 
-Most VR interfaces today employ patterns like these, which are translations of 2D interface elements to the 3D environment. Instead of a mouse pointer, raycasting cursors starting from a hand-tracked controller are often employed to select items. Clicks are emulated by button presses while an object is selected via raycasting. In this way, most traditional desktop interface elements, such as buttons, sliders, and switches can be used in 3D just as they would be in 2D.
+Most \textsc{vr} interfaces today employ patterns like these, which are translations of 2D interface elements to the 3D environment. Instead of a mouse pointer, raycasting cursors starting from a hand-tracked controller are often employed to select items. Clicks are emulated by button presses while an object is selected via raycasting. In this way, most traditional desktop interface elements, such as buttons, sliders, and switches can be used in 3D just as they would be in 2D.
 
 A different approach suggested by literature is using virtual ``tools'' to perform actions. Bowman defines these as ``specialized objects, in some ways not part of the environment itself, but rather the representations of methods the user may employ to perform actions on or in the environment'' \cite{bowman1995user}. Examples of virtual tools include guns or swords in games, paintbrushes in drawing applications, or minimaps of the environment to quickly teleport somewhere else.
 
+Non-linear mapping of hand movement has been proposed to make direct manipulation of far away objects less cumbersome \cite{poupyrev1996go}. Within a certain distance from the user, the virtual representation of the user's hands is directly mapped to their real hands. After this threshold, the virtual hands are mapped in a non-linear fashion, allowing users to reach further than they otherwise could.
 
-\section{State of the Art VR Interfaces}
-The current generation of VR Interfaces for productivity doesn't make much use of 3D space. Most interfaces are flat 2D panels, not very different from traditional 2D interfaces in both form and behavior. They rely heavily on flat, clipped, scrollable areas, or simply pagination with fade transitions.
+Traditional raycasting does not work the selection of objects that are partially or fully occluded. The Flexible Pointer technique tracks both hands to interactively construct a bezier-like curve, which can be used to reach around the objects obscuring the target \cite{feiner2003flexible}.
 
-We found this to be true on both Oculus Home and SteamVR, the two leading VR operating systems. Oculus Home's interface makes better use of the 3D space by employing freely floating elements in space, while SteamVR's interface relies mostly on monolithic flat panels. However, SteamVR has more consistent, spatial animations, while Oculus Home relies heavily on jarring cuts and fades. The same applies to applications and games in both ecosystems.
 
-\begin{figure}
-  \includegraphics{steamstore.png}
+\section{State of the Art \textsc{vr} Interfaces}
+The current generation of \textsc{vr} Interfaces does not make much use of 3D space. Most interfaces are flat 2D panels, not very different from traditional 2D interfaces in both form and behavior. They rely heavily on flat, clipped, scrollable areas, or simply pagination with fade transitions (see figure~\ref{fig:steamstore}). The third dimension is often used for purely aesthetic purposes, e.g. as a three-dimensional wallpaper behind or around the interactive interface elements. When interfaces do use 3D, it is often in a highly skeuomorphic context, mimicking real-world interactions such as picking up items and throwing them.
+This is at least in part due to the fact that the low resolution on the current generation of headsets makes high-density information display impossible, because users could not see it clearly enough.
+
+\begin{marginfigure}
+  \includegraphics[width=\linewidth]{steamstore.png}
   \caption{The SteamVR store interface is a single flat surface that behaves like a regular desktop app. On the bottom there is a taskbar to switch between open apps, and a system bar with time, volume and settings.}
   \label{fig:steamstore}
-\end{figure}
+\end{marginfigure}
+
+We found this to be true for both leading \textsc{vr} operating systems (Oculus Home and SteamVR), as well as most applications on these platforms. Oculus Home's interface makes some use of the 3D space by employing interface elements floating freely in space, while SteamVR's interface relies mostly on monolithic flat panels that behave exactly like a traditional screen. However, SteamVR has more consistent, spatial animations, while Oculus Home relies heavily on jarring cuts and fades.
 
 
 \subsection{Controller-Mapped Interfaces}
-One notable exception from the generally flat and traditional interfaces are the controls persistently mapped to the controllers in Google Earth and TiltBrush.
+One notable exception to the generally flat and traditional interfaces are the controls persistently mapped to the controllers in some applications. Google Earth and TiltBrush are prominent examples of this pattern, implementing Bowman's
 
-In Google Earth, there is a miniature globe fixed on top of the left hand controller. The right hand controller can be used to point at a position on the globe to teleport there. This kind of navigation with two hands feels very intuitive, because it only relies on direct hand movement in space, not abstract button mappings or external controls.
+In Google Earth, there is a miniature globe fixed on top of the left hand controller (see figure~\ref{fig:globe}). The right hand controller can be used to point at a position on the globe to teleport there. This kind of navigation with two hands feels very intuitive, because it only relies on direct hand movement in space, not abstract button mappings or external controls.
 
-\begin{figure}
-  \includegraphics{globe.png}
+\begin{marginfigure}
+  \includegraphics[width=\linewidth]{globe.png}
   \caption{The miniature globe is fixed to the top of the left hand controller and increases in size when pointed at by the right hand controller. A little red pin shows the location hovered by the cursor. Pressing the trigger button teleports to that location.}
   \label{fig:globe}
-\end{figure}
+\end{marginfigure}
 
-In TiltBrush, the left hand has a persistent menu with three pages of settings, which are arrayed around the controller, facing outwards. They can be turned along the center axis with the left hand controller's touchpad, and the right hand controller is used to operate the menus.
+In TiltBrush, the left hand has a persistent menu with three pages of settings, which are arrayed around the controller, facing outwards (see figure~\ref{fig:tiltbrush}). They can be turned along the center axis with the left hand controller's touchpad, and the right hand controller is used to operate the menus.
 The contents of the two menu panels not facing the user is not visible, likely so as not to be visually distracting. As the panels turn, only the one facing the user shows
 The menus themselves are not as interesting as their containers, employing standard 2D interface patterns such as pagination and clipping.
 
-In our opinion these examples show the potential of spatial interaces in VR, because they make use of the 3D space in a way that makes interfaces easier to navigate.
+These examples show the potential of spatial interaces in \textsc{vr}, because they make use of the 3D space in a way that makes interfaces easier to navigate.
 
 \begin{figure}
   \includegraphics{tiltbrushmenu.png}
   \caption{Color picker page, one of the three pages in the Tilt Brush menu}
-  \label{fig:tiltbrushmenu}
+  \label{fig:tiltbrush}
 \end{figure}
 
 
@@ -303,22 +311,22 @@ In our opinion these examples show the potential of spatial interaces in VR, bec
 \label{ch:background}
 
 \section{Technology}
-The \textsc{VR} ecosystem is currently (mid 2017) still in its infancy. We experimented with the Oculus Rift \textsc{cv1} and the \textsc{HTC} Vive, both released in early 2016, and tested the headset and controller hardware, software ecosystem, and developer tools.
+The \textsc{vr} ecosystem is currently (mid 2017) still in its infancy. We experimented with the Oculus Rift \textsc{cv1} and the \textsc{HTC} Vive, both released in early 2016, and tested the headset and controller hardware, software ecosystem, and developer tools.
 
 The installation and setup are very cumbersome for both headsets, especially on the software side, where we encountered many glitches, bugs, and usability problems.
 
-The biggest issue with both headsets is the very low resolution, as both only have a resolution of $1080$ $\times$ $1200$ pixels per eye. In addition, in the periphery of the display the picture is quite blurry. This means that refocusing the eyes to the sides to see content there is not possible, which is irritating. Text needs to be either very big, or very close in order to be legible, which makes any kind of information-dense application impractical. This is exemplified by the fact that the visual entropy of most apps is roughly that of a smartphone. It is also likely the reason why there are currently only a handful of non-trivial, non-game applications available on both the Oculus store and Steam.
+The biggest issue with both headsets is the very low resolution of only $1080$ $\times$ $1200$ pixels per eye. In addition, in the periphery of the display the picture is quite blurry. This means that refocusing the eyes to the sides to see content there is not possible, which is irritating. Text needs to be either very big, or very close in order to be legible, which makes any kind of information-dense application impractical. Bowman's vision of Information-Rich Virtual Environments \cite{bowman2003information} is therefore still not feasible with current hardware. This is exemplified by the fact that the visual entropy of most apps is roughly that of a smartphone. It is also likely the reason why there are currently only a handful of non-trivial, non-game applications available on both the Oculus store and Steam.
 
 Both headsets do room scale tracking reasonably well, but we found the Vive tracking to be more reliable. This is likely due to its trackers being mounted higher up and on opposite sides of the room. Walking around in the roughly 2x2m space feels natural, but the limitations of being able to move only within such a small space quickly become clear in scenarios like games with open-world environments, where it means that teleporting has to be the primary means of movement.
 
 \section{Development}
-We developed our prototypes in WebVR using Mozilla's A-Frame Framework. A-Frame is a Javascript library which enables building \textsc{vr} experiences using declarative components directly in \textsc{html}. Its entity-component structure makes it easy to prototype experiences by combining existing components, and defining new ones in Javascript. A-Frame runs completely standalone in the browser (though it does require Steam or Oculus being set up on the computer in order to work with the Vive or Oculus headsets), and can be used with other Javascript libraries and standard web tooling. Though there are some performance and stability issues in some cases, the quality of the experiences is more or less on par with native \textsc{vr} for simple applications.
+We developed our prototypes in WebVR using Mozilla's A-Frame\footnote{A-Frame: A Javascript framework for building VR experiences on the web (https://a-frame.io)} Framework. A-Frame is a Javascript library which enables building \textsc{vr} experiences using declarative components directly in \textsc{html}. Its entity-component structure makes it easy to prototype experiences by combining existing components, and defining new ones in Javascript. A-Frame runs completely standalone in the browser (though it does require Steam or Oculus being set up on the computer in order to work with the Vive or Oculus headsets), and can be used with other Javascript libraries and standard web tooling. Though there are some performance and stability issues in some cases, the quality of the experiences is more or less on par with native \textsc{vr} for simple applications.
 
 \section{Prototypes}
 In an initial exploration phase, we designed a number of different spatial interfaces and built prototypes to test their viability. The goal was to find novel ways of using three dimensions to make \textsc{vr} interfaces that don't require clipping to display large amounts of information.
 
 \subsection{Stacked List Prototype}
-This prototype is a scrollable 1-dimensional list of cards which uses z-depth to stack overflow cards at both ends of a list. The content of these stacked cards is not visible, but their presence shows how many items there are above and below the currently visible cards, thereby intuitively communicating the position in the list to the user, without relying on external indicators such as scrollbars.
+This prototype is a scrollable 1-dimensional list of cards which uses z-depth to stack cards at both ends of a list (see figure~\ref{fig:emailscroll}). The content of these stacked cards is not visible, but their presence shows how many items there are above and below the currently visible cards, thereby intuitively communicating the position in the list to the user, without relying on external indicators such as scrollbars.
 
 \begin{figure}
   \includegraphics{emailscroll.png}
@@ -327,6 +335,8 @@ This prototype is a scrollable 1-dimensional list of cards which uses z-depth to
 \end{figure}
 
 The list can be scrolled by keeping the trigger button on the controller pressed while moving it vertically. The scrolling direction mimics the ``natural'' scrolling behavior on touchscreens and touchpads, whereby moving the controller up will move the elements upwards, thus scrolling down in the list.
+
+The advantage of this approach is that it can accomodate many elements in a relatively small space. On the other hand, the usefulness of the stacked cards highly depends on the content. If the content is not very visually distinctive, individual cards are not recognizable while stacked.
 
 This prototype was the inspiration for the \emph{Stacked} interface type in our study.
 
@@ -338,7 +348,11 @@ This prototype was the inspiration for the \emph{Stacked} interface type in our 
   \label{fig:picassoinside}
 \end{marginfigure}
 
-In an attempt to use the available physical space as efficiently as possible, this prototype arrays information on a vertical 3D tube around the user. The information on the walls can be explored by walking around inside the tube, as well as changing the vertical position of the tube by ``scrolling'' it up and down, behaving as kind of elevator through the virtual space.
+In an attempt to use the available physical space as efficiently as possible, this prototype arrays information on a vertical 3D tube around the user (see figures~\ref{fig:picassoinside} and \ref{fig:picassooutside}). The information on the walls can be explored by walking around inside the tube, as well as changing the vertical position of the tube by interactively ``scrolling'' up and down, behaving as kind of elevator through the virtual space.
+
+This prototype can accomodate very large amounts of information, and navigation is efficient and intuitive. However, being totally enveloped by the content can make orientation diffitult due to the lack of stable landmarks. It also means that there is no possibility of getting a good overview by stepping back a bit. These problems could be addressed by only using having content along half of the tube. This could be combined with an overview mode, where the elevator moves back horizontally so users can see the tube from afar.
+
+We found that most of the value in this kind of interface comes from being able to explore by simply looking around the space, rather than interacting. This is what inspired the \emph{Spatial} interface type in our study.
 
 \begin{marginfigure}
   \includegraphics[width=\linewidth]{picassooutside.jpg}
@@ -354,19 +368,19 @@ In an attempt to use the available physical space as efficiently as possible, th
 \chapter{Study}
 \label{ch:study}
 
-To evaluate the differences between spatial and clipping-based interfaces we conducted an empirical study. We had participants perform the same task, finding icons in a list, using three different interfaces: A clipped, scrollable list, a scollable list that stacks overflowing elements in the z-dimension, and a two-dimensional grid.
+To evaluate the differences between spatial and clipping-based interfaces we conducted an empirical user study. We asked participants to perform the same task, finding icons in a list, using three different interfaces: A two-dimensional grid (\emph{Spatial}), a scollable list that stacks overflowing elements in the z-dimension (\emph{Stacked}), and a clipped, scrollable list (\emph{Clipped}), illustrated in figure \ref{fig:experiment-types}.
 
 \begin{figure}
   \includegraphics{types.png}
   \caption{The three different experiment types. Each of these was used in 6 different configurations, with different numbers of items, colored or monochrome.}
-  \label{fig:experiement-types}
+  \label{fig:experiment-types}
 \end{figure}
 
 \section{Participants}
-We recruited 20 participants (8 female, 12 male), aged between 19 and 49 years (MDN = 24 years). Most of them were display workers, with an average of 5.9 hours per day working with computers (SD = 2.3 h). Most participants had some experience with Virtual Reality, but none of them had used it extensively.
+We recruited 20 paid participants (8 female, 12 male), aged between 19 and 49 years (MDN = 24 years). Most of them were display workers, with an average of 5.9 hours per day working with computers (SD = 2.3 h). Most participants had some experience with Virtual Reality, but none of them had used it extensively.
 
 \section{Apparatus}
-The study was conducted in a university lab room using an HTC Vive connected to a Windows 10 PC. Participants were instructed to stand in the middle of an area measuring about $3m \times 3m$ at the center of the room. They were given the Vive headset and one tracked hand controller. The room-scale VR setup allowed them to freely move within this area and have their body and hand movement reflected faithfully inside VR.
+The study was conducted in a university lab room using an HTC Vive connected to a Windows 10 PC. Participants were instructed to stand in the middle of an area measuring about $3m \times 3m$ at the center of the room. They were given the Vive headset and one tracked hand controller. The room-scale \textsc{vr} setup allowed them to freely move within this area and have their body and hand movement reflected faithfully inside \textsc{vr} (see figure~\ref{fig:participant-view}).
 
 \begin{figure}
   \includegraphics{participant+view.png}
@@ -378,7 +392,7 @@ The study was conducted in a university lab room using an HTC Vive connected to 
 We used a within-subjects repeated measures design with three independent variables:
 
 \begin{itemize}
-  \item \emph{Interface type:} the three different interface types, \emph{Clipped}, \emph{Stacked}, and \emph{Spatial}
+  \item \emph{Interface type:} the three different interface types, \emph{Spatial}, \emph{Stacked}, and \emph{Clipped}
   \item \emph{Number of items:} 20, 50, or 250 icons
   \item \emph{Colored:} Whether all icons have the same white background, or different, colored backgrounds (from a palette of 10 colors)
 \end{itemize}
@@ -392,8 +406,7 @@ The resulting 18 conditions were counterbalanced using a Latin square.
 \end{marginfigure}
 
 \subsection{Interface Types}
-
-\emph{Spatial} is making use of the physical space to show all icons in a single grid. They can be navigated by simply moving one's head, and don't require additional interaction. The field of view taken up by this interface type varies from 45 to 100 degrees, depending on the number of icons.
+\emph{Spatial} is making use of the physical space to show all icons in a single grid. They can be navigated by simply moving one's head, and don't require additional interaction. The field of view taken up by this interface type varies from 45 to 100 degrees (see figures~\ref{fig:visual-field} and \ref{fig:fov-types}), depending on the number of icons.
 
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{fov-types.png}
@@ -401,9 +414,11 @@ The resulting 18 conditions were counterbalanced using a Latin square.
   \label{fig:fov-types}
 \end{figure*}
 
-\emph{Stacked} is a vertically scrolling single column of icons, where overflowing elements at the top and bottom of the column stack in the z-dimension. This means that all list elements are always present in the interface and are never completely hidden. Scrolling works by pressing and holding the trigger button and moving the controller up or down. This scrolls the list contiuously, following the vertical movement of the controller.
+\emph{Stacked} is a vertically scrolling single column of icons, where overflowing elements at the top and bottom of the column stack in the z-dimension. This means that all list elements are always present in the interface and are never completely hidden. Scrolling works by pressing and holding the trigger button and moving the controller up or down. This scrolls the list continuously, following the vertical movement of the controller.
 
-\emph{Clipped} is similar to \emph{Stacked}, except overflowing items disappear instead of stacking. The list is "clipped" at the top and bottom. The scrolling interaction is the same as for \emph{Stacked}.
+\emph{Clipped} is similar to \emph{Stacked}, except overflowing items disappear instead of stacking. The list is ``clipped'' at the top and bottom. The scrolling interaction is the same as for \emph{Stacked}.
+
+Figure \ref{fig:interface-types} shows how all three interface types look to participants in \textsc{vr}.
 
 \begin{figure*}[h]
 \includegraphics[width=\linewidth]{interface-types.png}
@@ -411,10 +426,8 @@ The resulting 18 conditions were counterbalanced using a Latin square.
 \label{fig:interface-types}
 \end{figure*}
 
-
 \subsection{Number of Items}
-
-The three different list sizes (20, 50, and 150) were chosen to test the entire spectrum of list sizes that realistically appear in user interfaces. 150 was chosen as the largest size because with more items, participants in our pilot studies quickly became frustrated by the long distances they had to scroll.
+The three different list sizes (20, 50, and 150) were chosen because they allowed us to test a large part of the spectrum of list sizes that realistically appear in user interfaces. We see 150 as the upper bound to the size of arbitrarily ordered, completely unstructured lists that people can handle in a practical manner. In our pilot studies we tested conditions with more items, but participants were very frustrated by the long distances they had to scroll to find icons in these conditions.
 
 \begin{marginfigure}
   \includegraphics[width=\linewidth]{controllers.png}
@@ -423,11 +436,10 @@ The three different list sizes (20, 50, and 150) were chosen to test the entire 
 \end{marginfigure}
 
 \subsection{Colored/Monochrome}
-
-We included the \emph{Colored} variable in order to understand the differences between \emph{Clipped} and \emph{Stacked} better. When all icons have the same background color, it is not possible to see what icons are on the "stacked" cards at both ends of the list. With different background colors, they can at least be differentiated when they are stacked, even though the actual icons are still obscured. We chose a palette of 10 colors that are each assigned to 10\% of the total number of icons. In additon, we also tested all conditions in a monochrome variant, where the background is white for all icons.
+We included the \emph{Colored} variable in order to understand the differences between \emph{Clipped} and \emph{Stacked} better. When all icons have the same background color, it is not possible to see what icons are on the ``stacked'' cards at both ends of the list. With different background colors, they can at least be differentiated when they are stacked, even though the actual icons are still obscured. We chose a palette of 10 colors that are each assigned to 10\% of the total number of icons. In additon, we also tested all conditions in a monochrome variant, where the background is white for all icons.
 
 \subsection{Tasks}
-The interfaces in all conditions display a number of squares with simple monochrome icons. Participants had to find specific icons, one at a time. The icon set used is a subset of the Material Design icon set used by Android and other Google products.
+The interfaces in all conditions display a number of squares with simple monochrome icons. Participants had to find specific icons, one at a time. The icon set used is a subset of the Material Design icon set used by Android and other Google products (see figure~\ref{fig:material-icons}).
 
 \begin{marginfigure}
   \includegraphics[width=\linewidth]{material-icons.png}
@@ -435,30 +447,25 @@ The interfaces in all conditions display a number of squares with simple monochr
   \label{fig:material-icons}
 \end{marginfigure}
 
-\emph{Initial:} First, participants had to find 5 icons, which were pseudo-randomly distributed across the entire set (one icon per quintile). To select the icon, they had to point at it with the raycasting cursor starting from the top of their controller, and press the trigger button.
+\emph{Initial:} First, participants had to find 5 icons (see figure~\ref{fig:controllers}), which were pseudo-randomly distributed across the entire set (one icon per quintile). To select the icon, they had to point at it with the raycasting cursor starting from the top of their controller, and press the trigger button.
 
 \emph{Repeat:} After finding each icon once, participants had to find the same 5 icons again, but in randomized order. Each participant had to find and select a total of 180 icons ($18$ conditions $\times$ $(5 + 5) $ icons).
 
 \subsection{Hypotheses}
-One of our hypotheses in performing the experiments was that \emph{Spatial} would show the highest task performace for both \emph{Initial} and \emph{Repeat}, since the entire set of icons is visible and can be explored by simply looking around the room. This gives the interface an advantage over the other types both for initial discovery (less interaction required) and re-discovery in the second task (due to spatial memory).
-
-Due to the similarities in structure and interaction, we assumed that \emph{Clipped} and \emph{Stacked} would perform similarly for \emph{Initial}.
-For \emph{Repeat Colored}, we hypothsized that \emph{Stacked} would show higher performance than \emph{Clipped}, because it does not hide elements completely, but stacks them in space, giving participants a clearer sense of their position in the list and making it easier to find icons again.
-
-Therefore, our hypotheses are the following:
+We conducted the experiment with the following hypotheses in mind:
 
 \begin{enumerate}[label=H\arabic*. , wide=0.5em,  leftmargin=*]
-  \item \emph{Spatial} outperforms \emph{Clipped} and \emph{Stacked}
-  \item \emph{Repeat} outperforms \emph{Initial}
+  \item \emph{Spatial} outperforms \emph{Clipped} and \emph{Stacked}: \emph{Spatial} allows participants to explore the entire set of icons by simply turning their heads, rather than using the controller, so we assumed it would this condition would be the fastest.
+  \item \emph{Repeat} outperforms \emph{Initial}: During the second round of each condition, participants only had to find icons that they'd found before, which we assumed would be faster due to spatial memory.
   \begin{enumerate}[label=H2.\arabic*. , wide=0.5em,  leftmargin=*]
-    \item \emph{Clipped} and \emph{Stacked} perform similarly for \emph{Initial}
-    \item \emph{Stacked} outperforms \emph{Clipped} for \emph{Repeat Colored}
+    \item \emph{Clipped} and \emph{Stacked} perform similarly for \emph{Initial}: Due to the similarities in structure and interaction, we assumed that there should be no difference between them in this case.
+    \item \emph{Stacked} outperforms \emph{Clipped} for \emph{Repeat Colored}: Since \emph{Stacked} does not hide elements completely, but stacks them in space, we assumed participants would have a clearer sense of their position and find them more easily the second time.
   \end{enumerate}
-  \item \emph{Colored} outperforms \emph{Monochrome}
+  \item \emph{Colored} outperforms \emph{Monochrome}: Since searching for a colored icon requires only looking at icons that have the correct color, we assumed this would be faster than searching through all icons.
 \end{enumerate}
 
 \section{Procedure}
-Participants were given a demographic questionnaire, and then introduced to the VR setup. They put on the headset and were handed the controller. They then received instructions for how to use the interfaces in the experiment from a short tutorial in VR. The tutorial consists of two parts.
+Participants were given a demographic questionnaire, and then introduced to the \textsc{vr} setup. They put on the headset and were handed the controller. They then received instructions for how to use the interfaces in the experiment from a short tutorial in \textsc{vr} (see figure~\ref{fig:tutorials}). The tutorial consists of two parts.
 In the first part the participants were shown how to select icons using the right controller's raycasting cursor.
 
 \begin{figure}
@@ -472,7 +479,7 @@ Participants were told to perform the tasks \emph{as quickly as possible without
 
 After being introduced to the basic interactions, participants got 3 example conditions (one for each interface type). This allowed them to learn the mechanics and get comfortable with the different interfaces before the actual experiment.
 
-Then they performed the tasks for all 18 conditions, counterbalanced using a Latin square. After each condition, they had to answer a questionnaire with four qualitative statements assessing their experience with a given condition. Participants rated each of the statements on a 7-point Likert scale (1 = not true at all, 7 = very true).
+Then they performed the tasks for all 18 conditions, counterbalanced using a Latin square. After each condition, they answered a questionnaire (inside the VR environment) with four qualitative statements assessing their experience with a given condition. Participants rated each of the statements on a 7-point Likert scale (1 = not true at all, 7 = very true).
 
 These are the four statements:
 
@@ -498,7 +505,7 @@ For each individual icon that had to be selected during the experiment, we logge
 \end{itemize}
 
 
-Of these variables, only selection time was really necessary for our hypotheses, but we chose to log the additional variables to have more context on our results.
+Of these variables, only selection time was really necessary for our hypotheses, but we chose to log the additional variables to get a more complete picture and find potential problems in our data more easily.
 
 
 %----------------------------------------------------------------------------------------
@@ -508,10 +515,10 @@ Of these variables, only selection time was really necessary for our hypotheses,
 \chapter{Results}
 \label{ch:results}
 
-This chapter presents the qualitative and quantitive results of our study, including the metrics measured during the experiment, the VR questionnaires after each condition, and the questionnaire at the end of the experiment.
+This chapter presents the qualitative and quantitive results of our study, including the metrics measured during the experiment, the \textsc{vr} questionnaires after each condition, and the questionnaire at the end of the experiment.
 
 \section{Quantitative Results}
-Of the quantitative metrics measured during the experiment, \emph{Selection Time} is the most important. It is measured as the time interval between when the target icon is shown on the controller and when the icon is clicked successfuly. All our main hypotheses are about quantitative performance, which is assessed using \emph{Selection Time}.
+Of the quantitative metrics measured during the experiment, \emph{Selection Time} is the most important. It is measured as the time interval between when the target icon is shown on the controller and when the icon is clicked successfuly. All our main hypotheses are about quantitative performance, which is assessed using \emph{Selection Time}. Figure \ref{fig:all-durations-chart} gives an overview of our results for the different interface types.
 
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{all-durations.pdf}
@@ -523,12 +530,12 @@ Our primary hypotheses were that in Spatial conditions, it would take less time 
 Lastly, we theorized that finding Colored icons would be faster than Monochrome ones (H3), which was confirmed.
 
 \section{Data Processing}
-35 out of 3600 trials had 1 or 2 errors, which means that 99.03\% (3565 / 3600) were valid. Then we computed the average and standard deviation for all conditions. We did not find any systematic error across conditions.
+35 out of 3600 trials had 1 or 2 errors, which means that 99.03\% were valid. Then we computed the average and standard deviation for all conditions. We did not find any systematic error across conditions.
 
-After removing trials with errors, 44 trials were excluded for having an average larger or smaller than 3 standard deviations than the average of the specific condition. This left us with 97.81\% (3521 / 3600) valid trials.
+After removing trials with errors, 44 trials were excluded for having an average larger or smaller than 3 standard deviations than the average of the specific condition. This left us with 3521 (97.81\%) valid trials.
 
 \subsection{H1: Spatial outperforms Stacked and Clipped}
-We hypothesized that the selection time is significantly shorter for Spatial conditions compared to both Stacked and Clipped conditions. This was tested using an individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable selection time. The results are significant in both cases ($p < .001$). The mean selection time for spatial conditions was $4320 ms$ ($SD = 5051 ms$), for stacked conditions it was $11250 ms$ ($SD = 10890 ms$), and for clipped $10920 ms$ ($SD = 10090 ms$).
+We hypothesized that the selection time would be significantly shorter for Spatial conditions compared to both Stacked and Clipped conditions. Our results confirmed that this is true in both cases (see figure \ref{fig:duration-types}). We performed an individual one-way \textsc{anova} ($F(2,3518) = 238.3, \alpha = .05$) on the dependent variable selection time. The results are significant in both cases ($p < .001$). The mean selection time for spatial conditions was $4.32 s$ ($SD = 5.05 s$), for stacked conditions it was $11.25 s$ ($SD = 10.89 s$), and for clipped $10.92 s$ ($SD = 10.09 s$).
 
 \begin{marginfigure}
   \includegraphics[width=\linewidth]{duration-types.pdf}
@@ -537,10 +544,10 @@ We hypothesized that the selection time is significantly shorter for Spatial con
 \end{marginfigure}
 
 \subsection{H2: Repeat outperforms Initial}
-Our second hypothesis was that on average, selections should be faster for icons that have already been found previously (\emph{Repeat}), compared to icons the participants have not seen before in a given condition (\emph{Initial}). This was confirmed by our results. An individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable selection time shows that \emph{Repeat} icons are found significantly faster than \emph{Initial} ones ($p < .001$). The mean selection time for \emph{Initial} icons was $9943 ms$ ($SD = 10490 ms$), while for \emph{Repeat} icons it was $7736 ms$ ($SD = 8474 ms$).
+Our second hypothesis was that on average, selections should be faster for icons that have already been found previously (\emph{Repeat}), compared to icons the participants have not seen before in a given condition (\emph{Initial}). This was confirmed by our results. An individual one-way \textsc{anova} ($F(1,3519) = 61.36, \alpha = .05$) on the dependent variable selection time shows that \emph{Repeat} icons are found significantly faster than \emph{Initial} ones ($p < .001$). The mean selection time for \emph{Initial} icons was $9.94 s$ ($SD = 10.49 s$), while for \emph{Repeat} icons it was $7.74 s$ ($SD = 8.47 s$).
 
 \subsection{H2.1: Clipped and Stacked perform similarly for Initial}
-We hypothesized that for \emph{Initial} icons there should not be any performance difference between Stacked and Clipped, since participants had not scrolled the list yet and could therefore not rely on spatial memory and the partially visible icons to find their target icons more quickly. This was confirmed by an individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable selection time. There was no significant difference between Stacked and Clipped for \emph{Initial} icons ($p = .631$). The mean selection time for \emph{Stacked} icons was $10170 ms$ ($SD = 9808 ms$), while for \emph{Clipped} icons it was $9750 ms$ ($SD = 9000 ms$).
+We hypothesized that for \emph{Initial} icons there should not be any performance difference between Stacked and Clipped, since participants had not scrolled the list yet and could therefore not rely on spatial memory and the partially visible icons to find their target icons more quickly. This was confirmed by an individual one-way \textsc{anova} ($F(2,1774) = 159.6, \alpha = .05$) on the dependent variable selection time. There was no significant difference between Stacked and Clipped for \emph{Initial} icons ($p = .631$). The mean selection time for \emph{Stacked} icons was $10.17 s$ ($SD = 9.81 s$), while for \emph{Clipped} icons it was $9.75 s$ ($SD = 9.00 s$).
 
 \subsection{H2.2: Stacked outperforms Clipped for Repeat Colored}
 The reason why we included colored conditions was because we assumed this could impact the difference in performance between Stacked and Clipped. When all icons have the same white background, they are not distinguishable at all while stacked. When the backgrounds are colored, it's possible to recognize stacked icons at a granular level by their color, and see patterns and sequences of colors even if the icons are not directly visible.
@@ -551,14 +558,14 @@ The reason why we included colored conditions was because we assumed this could 
   \label{fig:repeat-color}
 \end{marginfigure}
 
-Our assumption was that this would result in better performance for Spatial compared to Clipped in Repeat Colored conditions, but this was not confirmed by the individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable selection time. There was no significant difference between Stacked and Clipped for \emph{Repeat Colored} icons ($p = .95$). The mean selection time for \emph{Stacked} icons was $9445 ms$ ($SD = 8108 ms$), while for \emph{Clipped} icons it was $9268 ms$ ($SD = 8904 ms$).
+Our assumption was that this would result in better performance for Stacked compared to Clipped in Repeat Colored conditions, but this was not confirmed by the individual one-way \textsc{anova} ($F(2,882) = 110.2, \alpha = .05$) on the dependent variable selection time (see figure \ref{fig:repeat-color}). There was no significant difference between Stacked and Clipped for \emph{Repeat Colored} icons ($p = .95$). The mean selection time for \emph{Stacked} icons was $9.45 s$ ($SD = 8.11 s$), while for \emph{Clipped} icons it was $9.27 s$ ($SD = 8.90 s$).
 
 \subsection{H3: Colored outperforms Monochrome}
-Our last hypothesis was that \emph{Colored} conditions should perform better than \emph{Monochrome} ones on average, because the colors help reduce the number of icons that have to be scanned to only the ones with the right color. This was confirmed by an individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable selection time, which shows that the performance of colored icons was significantly better than for monochrome ones ($p < .001$). The mean selection time for colored icons was $7938 ms$ ($SD = 8094 ms$), while for monochrome icons it was $9724 ms$ ($SD = 10810 ms$).
+Our last hypothesis was that \emph{Colored} conditions should perform better than \emph{Monochrome} ones on average, because the colors help reduce the number of icons that have to be scanned to only the ones with the right color. This was confirmed by an individual one-way \textsc{anova} ($F(1,3519) = 60.31, \alpha = .05$) on the dependent variable selection time, which shows that the performance of colored icons was significantly better than for monochrome ones ($p < .001$). The mean selection time for colored icons was $7.94 s$ ($SD = 8.09 s$), while for monochrome icons it was $9.72 s$ ($SD = 10.81 s$).
 
 \section{Qualitative Results}
 
-We collected qualitative data about the user experience of our prototypes using two questionnaires: One per-condition questionnaire that participants filled in inside the VR environment, right after each condition, and a paper questionnaire after the experiment. The qualitative data confirms the findings of the quantitative study for the most part, as participants preferred Spatial conditions over Stacked and Clipped ones, and Colored ones over Monochrome. However, there are also some interesting differences, such as the preference for Stacked over Clipped (even though there is no measurable quantitative performance difference).
+We collected qualitative data about the user experience of our prototypes using two questionnaires: One per-condition questionnaire that participants filled in inside the \textsc{vr} environment, right after each condition, and a paper questionnaire after the experiment. The qualitative data confirms the findings of the quantitative study for the most part, as participants preferred Spatial conditions over Stacked and Clipped ones, and Colored ones over Monochrome. However, there are also some interesting differences, such as the preference for Stacked over Clipped (even though there is no measurable quantitative performance difference).
 
 \subsection{Post-Condition Questionnaire}
 After each of the 18 conditions, participants rated four qualitative statements assessing their experience with a given condition on a 7-point Likert scale (1 = not true at all, 7 = very true):

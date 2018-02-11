@@ -2,9 +2,11 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{tufte-book} % Use the tufte-book class which in turn uses the tufte-common class
+\documentclass[nobib]{tufte-book} % Use the tufte-book class which in turn uses the tufte-common class
 
-% \hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
+\usepackage{natbib}
+
+\hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
 
 \usepackage{microtype} % Improves character and word spacing
 
@@ -212,11 +214,6 @@ To answer our question we tested three different interfaces displaying the same 
 \subsection{Contributions}
 We evaluated general-purpose patterns for displaying and navigating large amounts of information in \textsc{vr}, which can be used by others building information-dense \textsc{vr} applications in the future.
 
-\subsection{Outline}
-
-.........
-
-
 %----------------------------------------------------------------------------------------
 %	RELATED WORK
 %----------------------------------------------------------------------------------------
@@ -280,9 +277,7 @@ We found this to be true for both leading \textsc{vr} operating systems (Oculus 
 
 
 \subsection{Controller-Mapped Interfaces}
-One notable exception to the generally flat and traditional interfaces are the controls persistently mapped to the controllers in some applications. Google Earth and TiltBrush are prominent examples of this pattern, implementing Bowman's
-
-In Google Earth, there is a miniature globe fixed on top of the left hand controller (see figure~\ref{fig:globe}). The right hand controller can be used to point at a position on the globe to teleport there. This kind of navigation with two hands feels very intuitive, because it only relies on direct hand movement in space, not abstract button mappings or external controls.
+One notable exception to the generally flat and traditional interfaces are the controls persistently mapped to the controllers in some applications. Google Earth and TiltBrush are prominent examples of this pattern, which is a variation of Bowman's concept of virtual tools \cite{bowman1995user}. In Google Earth, there is a miniature globe fixed on top of the left hand controller (see figure~\ref{fig:globe}). The right hand controller can be used to point at a position on the globe to teleport there. This kind of navigation with two hands feels very intuitive, because it only relies on direct hand movement in space, not abstract button mappings or external controls.
 
 \begin{marginfigure}
   \includegraphics[width=\linewidth]{globe.png}
@@ -522,7 +517,7 @@ Of the quantitative metrics measured during the experiment, \emph{Selection Time
 
 \begin{figure*}[h]
   \includegraphics[width=\linewidth]{all-durations.pdf}
-  \caption{Selection time for all experiment types and list sizes}
+  \caption{Selection time for all interface types and list sizes}
   \label{fig:all-durations-chart}
 \end{figure*}
 
@@ -561,42 +556,99 @@ The reason why we included colored conditions was because we assumed this could 
 Our assumption was that this would result in better performance for Stacked compared to Clipped in Repeat Colored conditions, but this was not confirmed by the individual one-way \textsc{anova} ($F(2,882) = 110.2, \alpha = .05$) on the dependent variable selection time (see figure \ref{fig:repeat-color}). There was no significant difference between Stacked and Clipped for \emph{Repeat Colored} icons ($p = .95$). The mean selection time for \emph{Stacked} icons was $9.45 s$ ($SD = 8.11 s$), while for \emph{Clipped} icons it was $9.27 s$ ($SD = 8.90 s$).
 
 \subsection{H3: Colored outperforms Monochrome}
-Our last hypothesis was that \emph{Colored} conditions should perform better than \emph{Monochrome} ones on average, because the colors help reduce the number of icons that have to be scanned to only the ones with the right color. This was confirmed by an individual one-way \textsc{anova} ($F(1,3519) = 60.31, \alpha = .05$) on the dependent variable selection time, which shows that the performance of colored icons was significantly better than for monochrome ones ($p < .001$). The mean selection time for colored icons was $7.94 s$ ($SD = 8.09 s$), while for monochrome icons it was $9.72 s$ ($SD = 10.81 s$).
+Our last hypothesis was that \emph{Colored} conditions should perform better than \emph{Monochrome} ones on average, because the colors help reduce the number of icons that have to be scanned to only the ones with the right color. This was confirmed by an individual one-way \textsc{anova} ($F(1,3519) = 60.31, \alpha = .05$) on the dependent variable selection time, which shows that the performance of colored icons was significantly better than for monochrome ones ($p < .001$). The mean selection time for colored icons was $7.94 s$ ($SD = 8.09 s$), while for monochrome icons it was $9.72 s$ ($SD = 10.81 s$). Such a significant result is interesting because we had assumed that colors could potentially be distracting, and therefore impact performance negatively.
 
 \section{Qualitative Results}
 
-We collected qualitative data about the user experience of our prototypes using two questionnaires: One per-condition questionnaire that participants filled in inside the \textsc{vr} environment, right after each condition, and a paper questionnaire after the experiment. The qualitative data confirms the findings of the quantitative study for the most part, as participants preferred Spatial conditions over Stacked and Clipped ones, and Colored ones over Monochrome. However, there are also some interesting differences, such as the preference for Stacked over Clipped (even though there is no measurable quantitative performance difference).
+We collected qualitative data about the user experience of our prototypes using two questionnaires: One per-condition questionnaire that participants filled in inside the \textsc{vr} environment, right after each condition, and a paper questionnaire after the experiment was concluded. The qualitative data confirms the findings of the quantitative study for the most part, as participants preferred Spatial conditions over Stacked and Clipped ones, and Colored ones over Monochrome. However, there are also some interesting differences, such as the preference for Stacked over Clipped (even though there is no measurable quantitative performance difference).
 
 \subsection{Post-Condition Questionnaire}
-After each of the 18 conditions, participants rated four qualitative statements assessing their experience with a given condition on a 7-point Likert scale (1 = not true at all, 7 = very true):
+After each of the 18 conditions, participants rated four qualitative statements assessing their experience with a given condition on a 7-point Likert scale. For the most part, the results of the questionnaires match the findings from the quantitative data.
 
-\begin{enumerate}[label=\arabic*. , wide=0.5em,  leftmargin=*]
-  \item I could memorize the position of the items.
-  \item I was overwhelmed by the number of items.
-  \item I found the layout efficient to navigate.
-  \item I could easily find the item I was looking for.
-\end{enumerate}
+\begin{figure}
+  \includegraphics{postcon-memorize.pdf}
+  \caption{Responses to ``I could memorize the position of the items'' split by interface type and number of icons (Likert scale, 1=not true at all, 7=very true)}
+  \label{fig:memorize}
+\end{figure}
 
-For the most part, the results of the questionnaires match the findings from the quantitative data.
+\emph{``I could memorize the position of the items''}:
+An individual one-way \textsc{anova} ($F(5,357) = 1.9, \alpha = .05$) on the dependent variable rating shows that icon positions in Spatial conditions were seen as significantly easier to memorize than in Stacked ($p < .001$) and Clipped ($p < .001$), while there was no signifcant difference between Stacked and Clipped ($p = .48$). We also did not find a significant difference between Colored and Monochrome ($p < .86$). We also found a significant effect from the size of the conditions, between 20 and 50 ($p = .043$), 20 and 150 ($p < .001$), and 50 and 150 ($p < .001$). This shows that participants found Spatial conditions significantly easier to memorize, but didn't perceive a difference between Colored/Monochrome and Stacked/Clipped conditions. The number of icons was also a significant factor, especially for Stacked and Clipped, as figure \ref{fig:memorize} shows.
 
-Spatial....
+\emph{``I was overwhelmed by the number of items''}:
+An individual one-way \textsc{anova} ($F(17,345) = 0.95, \alpha = .05$) on the dependent variable rating shows that participants found Spatial conditons less overwhelming than Stacked ($p < .001$), but there was no difference between Spatial and Clipped ($p = .42$). Clipped was rated to be less overwhelming than Stacked ($p = .022$). We did not find a significant difference between Colored and Monochrome ($p = .083$). We also found a significant effect from the size of the conditions, between 20 and 50 ($p < .001$), 20 and 150 ($p < .001$), and 50 and 150 ($p < .001$). The fact that participants found Spatial conditions least overwhelming is interesting, as we had assumed that especially in larger conditions, showing all elements at once would be overwhelming. As figure \ref{fig:overwhelmed} shows this is not the case.
 
-Colored....
+\begin{figure}
+\includegraphics{postcon-overwhelmed.pdf}
+\caption{Responses to ``I was overwhelmed by the number of items'' split by interface type and number of icons (Likert scale, 1=not true at all, 7=very true)}
+\label{fig:overwhelmed}
+\end{figure}
+
+\emph{``I found the layout efficient to navigate''}
+An individual one-way \textsc{anova} ($F(5,357) = 1.9, \alpha = .05$) on the dependent variable rating shows that Spatial conditions were seen as significantly more efficient to navigate than in Stacked ($p < .001$) and Clipped ($p < .001$), while there was no signifcant difference between Stacked and Clipped ($p = .79$). Colored conditions were rated more efficient than Monochrome ones ($p = .005$). We also found a significant effect from the size of the conditions, between 20 and 50 ($p = .006$), 20 and 150 ($p < .001$), and 50 and 150 ($p < .001$). This shows that participants found Spatial conditions significantly more efficient to navigate, but didn't perceive a difference between Stacked and Clipped conditions. The number of icons was also a significant factor, as is clearly visible in figure \ref{fig:efficient}.
+
+\begin{figure}
+\includegraphics{postcon-efficient.pdf}
+\caption{Responses to ``I found the layout efficient to navigate'' split by interface type and number of icons (Likert scale, 1=not true at all, 7=very true)}
+\label{fig:efficient}
+\end{figure}
+
+\emph{``I could easily find the item I was looking for''}
+An individual one-way \textsc{anova} ($F(17,345) = 3.53, \alpha = .05$) on the dependent variable rating shows that icons in Spatial conditions were seen as significantly more easy to find than in Stacked ($p < .001$) and Clipped ($p < .001$), while there was no signifcant difference between Stacked and Clipped ($p = .72$). Colored conditions were rated more highly than Monochrome ones ($p = .005$). We also found a significant effect from the size of the conditions, between 20 and 50 ($p < .001$), 20 and 150 ($p < .001$), and 50 and 150 ($p < .001$). This shows that participants found icons easiest to find in Spatial and Colored conditions, but didn't perceive a difference between Stacked and Clipped conditions (see figure \ref{fig:easyfind}). The number of icons was also a significant factor.
+
+\begin{figure}
+\includegraphics{postcon-easy.pdf}
+\caption{Responses to ``I could easily find the item I was looking for'' split by interface type and number of icons (Likert scale, 1=not true at all, 7=very true)}
+\label{fig:easyfind}
+\end{figure}
+
 
 \subsection{Post-Experiment Questionnaire}
 After participants completed the experiment, they filled in a short paper questionnaire assessing their experience with the different interfaces. For each combination of interface type and color, they gave a rating on a 7-point Likert scale (1 = very negatively, 7 = very positively).
 
 \begin{figure}
   \includegraphics{post-color.pdf}
-  \caption{Ratings for different experiment types, with and without colors}
+  \caption{Post-experiment ratings for different experiment types, monochrome and in color}
   \label{fig:post-color}
 \end{figure}
 
-The results mirror the other quantitative and qualitative outcomes, in that Spatial and Colored conditions were rated most highly. However, these results also show significant differences between Stacked and Clipped. An individual one-way \textsc{anova} ($\alpha = .05$) on the dependent variable rating shows that participants preferred Stacked to Clipped ($p = .025$).
+The results mirror the other quantitative and qualitative outcomes, in that Spatial and Colored conditions were rated most highly. An individual one-way \textsc{anova} ($F(5,114) = 1.9, \alpha = .05$) on the dependent variable rating shows that participants preferred Spatial to both Stacked ($p < .001$) and Clipped ($p < .001$). It also shows that they preferred Colored to Monochrome ($p < .001$).
 
+However, unlike the quantitative results, these results also show significant differences between Stacked and Clipped. An individual one-way \textsc{anova} ($F(5,114) = 1.9, \alpha = .05$) on the dependent variable rating shows that participants preferred Stacked to Clipped ($p = .015$). This shows that particiants perceived Stacked and Clipped differently, despite the fact that there was no significant difference in performance in our experiment.
+
+% Monochrome Spatial == Color Stacked
+% Monochrome Stacked == Color Clipped
 
 \subsection{Participant Comments}
+The comments we got from participants, both verbally during the experiment, and in the comments field on our post-experiment questionnaire, match our other findings for the most part. The most prevalent comment was that color made it much easier to find items because it narrowed down the search to only icons of the right color. This was mentioned by almost all partcicipants, though one participant expressed finding it confusing in Spatial conditions.
 
+\begin{quote}
+  ``Color helps find icons easily (even if you don't remember the location). Black/White is difficult to find.''
+
+  - participant 17
+\end{quote}
+
+Many participants also expressed a preference for Spatial conditions, stating that they found it faster and easier to find items by looking around rather than scrolling a list.
+
+Several participants also commented on their preference for Stacked over Clipped. This is consistent with the results from the Likert scale ratings, which also show a preference for Stacked.
+Multiple comments also mentioned being particularly annoyed by large Clipped conditions, because the position in the list was not visible.
+
+\begin{quote}
+``Clipped gives no indication where in the list I am (at 20\% or at 80\%).''
+
+- participant 9
+\end{quote}
+
+One participant mentioned feeling like they were equally efficient with colored Clipped compared to colored Stacked, but required more mental work because they had to rely entirely on their memory.
+
+A few participants occasionally had problems with clicking items in scrolling conditions (Clipped and Stacked), which they mentioned both verbally and in comments. They were all able to complete the tasks, but it may have had a small impact on their performance in these conditions.
+
+Several participants also mentioned feeling like Stacked conditions were laggy and unresponsive compared to Clipped. This may also have had an impact on their task performance. Interestingly, this did not seem to impact their preference for Stacked over Clipped. This may be connected to the fact that they liked how it looked (``Stacked looks more cool'' - participant 11), and the aforementioned sense of position in the list that Stacked provides.
+
+\begin{quote}
+``Clipped scrolls more smoothly than Stacked.''
+
+- participant 13
+\end{quote}
 
 %----------------------------------------------------------------------------------------
 %	DISCUSSION
@@ -605,8 +657,22 @@ The results mirror the other quantitative and qualitative outcomes, in that Spat
 \chapter{Discussion}
 \label{ch:discussion}
 
+Our results show that spatial interfaces have the potential to make VR interfaces more efficient and pleasurable to navigate. Spatial conditions were outperforming other conditions in both the quantitative and qualitative parts of our study. This confirms our initial assumptions, and shows the potential of using 3D space more fully in VR interfaces. Though we did not find any significant performance advantage in Stacked over Clipped, the fact that participants preferred it and mentioned being able to have a better sense of position within the list does mean that this interface type could potentially be promising, and should be explored further.
 
-......
+\section{Limitations}
+Due to performance problems with our implementation, Stacked conditions were laggier than Clipped ones, rendering at lower frame rates and in some cases dropping frames aggressively. This happened to different degrees for different participants. It is hard to estimate the impact this had on the results, but it should be taken into account when discussing them. It is unlikely that a more performant implementation would have changed the results so drastically in favor of Stacked that the difference would have been significant.
+
+Another flaw in our implementation was that scrolling and clicking were done using the same controller button (the right hand trigger). We chose this interaction because we wanted it to be easy to get started with by mimicking the one-finger interaction on touch screens that we assumed all participants would be familiar with. Holding the trigger and moving it further than a certain threshold from the original position would scroll, releasing it without moving it would click. This mechanic worked well for most of our participants, but for a few of them it was difficult to click without moving the controller past the threshold. This meant that they would have to try clicking an icon several times before being able to select it, because they moved the controller too much before releasing and triggered a scroll instead of a click. This got better after the first few conditions, as participants learned to click more quickly and move the controller less. It is therefore unlikely that it impacted the results significantly.
+
+\section{Future Work}
+All the interfaces in our experiment had a spatial model. The difference between Clipped and the other two conditions is that the spatial model is implicit. Just like on screens, elements that are not currently visible still exist in the user's mental model of the interface, they are just not currently visible. This may be part of the reason why we did not find a significant difference in performance between Stacked and Clipped. It would therefore be interesting to add interfaces with no spatial model (e.g. a paginated list with no animations) to the experiment. The difficulty in this case would be that the interactions could not be the same (scrolling is spatial by defintiion), which would make them harder to compare. However, given that pagination with non-spatial page transitions is a common navigation pattern in current-generation VR interfaces, it would be a very relevant comparison.
+
+Another area that could be further explored is different spatial arrangements for items, like our Stacked conditon. We found that users liked it, but some mentioned that they could not see the elements very well from the front, which negates part of the benefit of this layout. Different layouts, like stacking cards on top and bottom instead of behind the list, could be explored in order to address this problem.
+
+In order to have more context on people's scanning and navigation techniques, it would be interesting to run a similar study while tracking participants' eye movements. This could also help to understand the influence of color more clearly, as most participants mentioned that they found it helpful, while a few expressed that they found it distracting.
+
+All of our participants had relatively little experience with VR. They used our interfaces for the first time during the experiment, and though we did have a set of tutorials introducing them to the interfaces, the novelty of it all was likely a factor in how participants performed in the experiments. It would therefore be interesting to perform a more long-term study, where participants use interfaces multiple times over a longer period. In order to understand whether the performance difference between Spatial and the other conditions changes over time, as participants get more comfortable with the more interaction-heavy Stacked and Clipped conditions.
+
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSION
@@ -615,8 +681,12 @@ The results mirror the other quantitative and qualitative outcomes, in that Spat
 \chapter{Conclusion}
 \label{ch:conclusion}
 
+When a new medium emerges, it tends to emulate the constraints and idiosyncacies of previous mediums at first. For example, early web pages were modeled after printed media, and therefore did not really make use of the new possibilities that screens afforded over print (e.g. dynamic, responsive layouts). As a medium matures, creators learn to use it more effectively, and it comes into its own as a separate medium rather than an extension of existing media. As Virtual and Augmented Reality technology advances and moves closer to the mainstream, we will likely see it undergo this transition as well.
 
-......
+Currently, VR interfaces are emulating traditional 2D interfaces for the most part. As the technology improves and designers become more familar with the medium, they will increasingly want to make use of the fact that users can move their bodies in 3D space as part of interacting with the interface. This is the inherent advantage of VR compared to screen-based 2D interfaces. Spatial interfaces take advantage of these capabilities, which is why we believe that they are a very promising research area.
+
+In this thesis we explored different types of spatial interfaces in Virtual Reality. We surveyed the relevant literature, the most common interaction techniques, and the current state of the technology. We then built a number of prototypes that explore different approaches to spatial VR interfaces, and conducted a study comparing them to a simple clipped list. The results show that spatial interfaces can help make interfaces more efficient and pleasurable to use, but it is dependent on the approach. We also found that even when there is no measurable performance difference, people preferred interfaces with an explicitly visible spatial model over ones that hide it. These results are encouraging, but further experimentation will be necessary to develop robust, scalable interface patterns for organizing information spatially. The dynamic nature of VR as a medium enables a myriad of new ways to display, structure, and navigate information that are yet unexplored.
+
 
 %----------------------------------------------------------------------------------------
 

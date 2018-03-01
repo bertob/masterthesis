@@ -1463,8 +1463,10 @@
   \vspace{11.5pc}%
   \fontsize{34}{50}\selectfont\par\noindent\textcolor{darkgray}{\textit{\thanklesstitle}}%
   \vfill%
-  \fontsize{12}{18}\selectfont\par\noindent{Supervisors: \newline David Lindlbauer \newline Prof. Dr. Marc Alex}%
-  \vspace{3pc}%
+  \fontsize{12}{18}\selectfont\par\noindent{Master thesis}%
+  \vspace{1.5pc}%
+  \fontsize{12}{18}\selectfont\par\noindent{Supervisor: Prof. Dr. Marc Alexa}%
+  \vspace{1.5pc}%
   \fontsize{12}{18}\selectfont\par\noindent{Department of Computer Graphics}%
   \fontsize{12}{18}\selectfont\par\noindent{TU Berlin}%
   \end{fullwidth}%
@@ -1590,14 +1592,14 @@
 \ifthenelse{\boolean{@tufte@toc}}{%
   \titlecontents{part}% FIXME
     [0em] % distance from left margin
-    {\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{1.1\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
     {\contentslabel{2em}} % before w/label (label = ``II'')
     {} % before w/o label
     {\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
     [\end{fullwidth}] % after
   \titlecontents{chapter}%
     [0em] % distance from left margin
-    {\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\vspace{0.9\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
     {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
     {\hspace*{0em}} % before w/o label
     {\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)

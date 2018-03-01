@@ -95,17 +95,6 @@
 \usepackage{makeidx} % Used to generate the index
 \makeindex % Generate the index which is printed at the end of the document
 
-% This block contains a number of shortcuts used throughout the book
-\newcommand{\vdqi}{\textit{VDQI}\xspace}
-\newcommand{\ei}{\textit{EI}\xspace}
-\newcommand{\ve}{\textit{VE}\xspace}
-\newcommand{\be}{\textit{BE}\xspace}
-\newcommand{\VDQI}{\textit{The Visual Display of Quantitative Information}\xspace}
-\newcommand{\EI}{\textit{Envisioning Information}\xspace}
-\newcommand{\VE}{\textit{Visual Explanations}\xspace}
-\newcommand{\BE}{\textit{Beautiful Evidence}\xspace}
-\newcommand{\TL}{Tufte-\LaTeX\xspace}
-
 %----------------------------------------------------------------------------------------
 %	BOOK META-INFORMATION
 %----------------------------------------------------------------------------------------
@@ -122,13 +111,7 @@
 
 \begin{document}
 
-% \frontmatter
-
-% I hereby declare that I have completed this thesis work independently without any unauthorized external help using only the cited sources and references.
-%
-%
-% Hiermit erkl{\"a}re ich, dass ich die vorliegende Arbeit selbstst{\"a}ndig und eigenh{\"a}ndig sowie ohne unerlaubte fremde Hilfe und ausschlie{\ss}lich unter Verwendung der aufgef{\"u}hrten Quellen und Hilfsmittel angefertigt habe.
-
+\frontmatter
 
 %----------------------------------------------------------------------------------------
 
@@ -148,8 +131,30 @@ Copyright \copyright\ \the\year\ \thanklessauthor
 
 \par This thesis uses the Tufte-Latex template (\url{http://tufte-latex.googlecode.com}) licensed under the Apache License, Version 2.0 (the ``License''); you may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://www.apache.org/licenses/LICENSE-2.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \smallcaps{``AS IS'' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\index{license}
 
-\par\textit{\monthyear}
 \end{fullwidth}
+
+
+\newpage
+% \begin{fullwidth}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+~\vspace{5pc}
+\section{Declaration}
+\par I hereby declare that I have completed this thesis independently without any unauthorized external help using only the cited sources and references.
+
+~\vspace{3pc}
+\section{Deklaration}
+\par Hiermit erkl{\"a}re ich, dass ich die vorliegende Arbeit selbstst{\"a}ndig und eigenh{\"a}ndig sowie ohne unerlaubte fremde Hilfe und ausschlie{\ss}lich unter Verwendung der aufgef{\"u}hrten Quellen und Hilfsmittel angefertigt habe.
+
+~\vspace{3pc}
+
+\emph{Berlin, March 2018}
+
+\line(1,0){250}
+
+% \end{fullwidth}
+
 
 %----------------------------------------------------------------------------------------
 
@@ -172,7 +177,7 @@ To test this hypothesis we ran a study in which we compared three different inte
 
 Participants found the target icons significantly faster in \emph{Spatial} condiitons compared to \emph{Stacked} and \emph{Clipped}. Colorful backgrounds also improved the task performance significantly. We did not find a quantitative difference between \emph{Stacked} and \emph{Clipped}, but in our post-experiment questionnaire users expressed a significant preference for \emph{Stacked}.
 
-\chapter{Abstrakt (deutsche {\"U}bersetzung)}
+\chapter{Zusammenfassung}
 Zur Darstellung von gro{\ss}en Informationsmengen, welche nicht gleichzeitig auf den Bildschirm passen, wird in traditionellen grafischen Oberfl{\"a}chen h{\"a}ufig ``clipping'' (ausschneiden, beschneiden) verwendet. Dabei wird der Inhalt auf einer Fl{\"a}che dargestellt, welche gr{\"o}{\ss}er als der Bildschirm ist. Der sichtbare Ausschnitt des Bildes kann von Nutzern interaktiv verschoben werden. Da immer ein Teil des Inhalts sichtbar ist, f{\"a}llt es Nutzern schwer, sich ein mentales Modell der Daten zu bilden, was die Navigation schwieriger machen kann.
 
 Viele Virtual Reality Anwendungen verwenden dieselben ``clipping'' Patterns wie traditionelle 2D Oberfl{\"a}chen. Unsere Hypothese ist, dass durch die Nutzung des vollen Potentials der dritten Dimension (z.B. die M{\"o}glichkeit, sich im Raum zu bewegen) bessere Interaktionsmodelle f{\"u}r die Navigation von \textsc{vr} Umgebungen m{\"o}glich sind.

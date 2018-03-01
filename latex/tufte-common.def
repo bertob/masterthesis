@@ -1463,7 +1463,10 @@
   \vspace{11.5pc}%
   \fontsize{34}{50}\selectfont\par\noindent\textcolor{darkgray}{\textit{\thanklesstitle}}%
   \vfill%
-  \fontsize{14}{16}\selectfont\par\noindent{\thanklesspublisher}%
+  \fontsize{12}{18}\selectfont\par\noindent{Supervisors: \newline David Lindlbauer \newline Prof. Dr. Marc Alex}%
+  \vspace{3pc}%
+  \fontsize{12}{18}\selectfont\par\noindent{Department of Computer Graphics}%
+  \fontsize{12}{18}\selectfont\par\noindent{TU Berlin}%
   \end{fullwidth}%
   }
   \thispagestyle{empty}%
